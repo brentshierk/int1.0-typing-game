@@ -1,5 +1,4 @@
 from flask import Flask, render_template, redirect,url_for,jsonify,request
-from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 import random
 DEBUG = True
@@ -7,9 +6,6 @@ DEBUG = True
 app = Flask(__name__)
 
 app.config.from_object(__name__)
-
-app.config["MONGO_URI"] = "mongodb://localhost:27017/final_project"
-mongo = PyMongo(app)
 
 
 """
@@ -25,12 +21,9 @@ def get_file_lines(filename):
 
 words_list = get_file_lines('static/1000.txt')
 
-def display_words(words_list):
-    pass
-
 def words_per_minute():
     minutes = 1
-    seconds  = 0
+    #seconds  = 0
     words = 102
 
     wpm = words / minutes 
@@ -46,8 +39,14 @@ words_per_minute()
 
 
 @app.route('/')
-def home_page():
-    return render_template('main.html')
+def home_page(words_list):
+    prompt = random.sample(words_list,50)
+
+    context = {
+        'prompt' : prompt
+    }
+
+    return render_template('main.html',**context)
 
 @app.route('/about')
 def about_page():
