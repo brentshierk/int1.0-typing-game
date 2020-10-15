@@ -25,22 +25,15 @@ def words_per_minute():
     minutes = 1
     #seconds  = 0
     words = 102
-
     wpm = words / minutes 
-    print('wpm = ',wpm)
-
-words_per_minute()
-        
-            
-
-        
-       
-
+    return wpm
 
 
 @app.route('/')
-def home_page(words_list):
-    prompt = random.sample(words_list,50)
+def home_page():
+    words_list
+    list_strings = random.sample(words_list,50)
+    prompt = ' '.join(list_strings)
 
     context = {
         'prompt' : prompt
@@ -51,8 +44,7 @@ def home_page(words_list):
 @app.route('/about')
 def about_page():
     pass
-
+words_per_minute()
 get_file_lines('1000.txt')
-display_words(words_list)
 if __name__ == '__main__':
     app.run(debug=True)
