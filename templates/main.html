@@ -16,8 +16,30 @@
           
         </div>
       </div>
-      <input type="text" class="form-control" placeholder="type here" aria-label="Username" aria-describedby="addon-wrapping">
+      <div>
+        <form class="form-group" method="POST">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input type="radio" >
+              </div>
+            </div>
+            <input type="text" class="form-control" name="typed_words" placeholder="type here" onchange="setTimeout(myFunction, 3000)">
+        </form>
+      </div>
+
+      <input type="text" class="form-control" onchange="setTimeout(myFunction, 3000)">
+      <br>
+      <button type="button" class="btn btn-primary">Submit</button>
+      <button onchange="setTimeout(myFunction, 000)">Try it</button>
+
+
+
 </div>
 </main>
+<script>
+    function myFunction() {
+      alert('Hello');
+    }
+    </script>
 
 {% endblock content%}
