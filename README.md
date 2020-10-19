@@ -1,6 +1,6 @@
 # int1.0-typing-game - 2 Hands,10 Fingers
 
-this game was created for people to increase their typing speeds. 
+2 Hands, 10 Fingers is a application for people to get better at typing.
 
 
 about the application:
